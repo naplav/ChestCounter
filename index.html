@@ -99,8 +99,12 @@
             fetch('https://script.google.com/macros/s/AKfycbzZyEv9E5AIb5DOGkkj3mqBRiCRTR3hcjVO_seMONIrgrqn5hb_MrDCY3XyfJzIVWSg/exec')
                 .then(response => response.json())
                 .then(data => {
-                    $('#dataTable').DataTable({
-                        data: data.data,
+                    // Troviamo la riga "Totale" (ultima riga ricevuta)
+                    let totaleRow = data.data.pop(); 
+
+                    // Inizializziamo la DataTable senza dati
+                    let table = $('#dataTable').DataTable({
+                        data: [],
                         columns: [{ data: "player" },
 { data: "Total Points" },
 { data: "C-INDEX" },
@@ -138,11 +142,17 @@
 { data: "RC30" },
 { data: "Triumph" },
 { data: "Vault" },],
-                        paging: false, 
-                        scrollY: "70vh",
-                        scrollX: true,
-                        scrollCollapse: true
+                        paging: false,        // ❌ Nessuna paginazione
+                        scrollY: "70vh",      // 🔽 Scroll verticale (max 70% altezza finestra)
+                        scrollX: true,        // 🔽 Scroll orizzontale se serve
+                        scrollCollapse: true  // 🔄 Adatta la tabella alla finestra
                     });
+
+                    // Aggiungiamo manualmente la riga "Totale" come prima riga
+                    table.row.add(totaleRow).draw();
+
+                    // Aggiungiamo tutte le altre righe
+                    data.data.forEach(row => table.row.add(row).draw());
                 });
         });
     </script>
