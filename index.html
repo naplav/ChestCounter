@@ -171,9 +171,9 @@
 
                             // Applica i colori in base al valore di C-INDEX
                             var color = "";
-                            if (cIndex > 1) color = "green";
-                            else if (cIndex < 0.9) color = "red";
-                            else color = "gold";
+                            if (cIndex > 1) color = "#d4edda";  // Verde chiaro
+                            else if (cIndex < 0.9) color = "#f8d7da";  // Rosso chiaro
+                            else color = "#fff3cd";  // Giallo chiaro
 
                             // Colora le celle corrispondenti
                             $(this.node()).find("td").eq(cIndexCol).css("background-color", color);
