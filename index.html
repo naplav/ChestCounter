@@ -109,21 +109,8 @@
             fetch('https://script.google.com/macros/s/AKfycbzZyEv9E5AIb5DOGkkj3mqBRiCRTR3hcjVO_seMONIrgrqn5hb_MrDCY3XyfJzIVWSg/exec')
                 .then(response => response.json())
                 .then(data => {
-                    let headers = data.headers;
-                    let rows = data.data;
-
-                    // Trova la riga "Total" e rimuovila dai dati
-                    let totalRow = rows.find(row => row[headers[0]] === "Total");
-                    let filteredRows = rows.filter(row => row[headers[0]] !== "Total");
-
-                    // Ricrea i dati mettendo "Total" come prima riga
-                    let finalData = [];
-                    if (totalRow) finalData.push(totalRow); // Aggiunge "Total" in cima
-                    finalData = finalData.concat(filteredRows); // Aggiunge il resto delle righe
-
-                    // Inizializza DataTable
-                    $('#dataTable').DataTable({
-                        data: finalData,
+                    var table = $('#dataTable').DataTable({
+                        data: data.data,
                         columns: [{ data: "player" },
 { data: "Total Points" },
 { data: "C-INDEX" },
@@ -168,8 +155,31 @@
                         order: []  // Disabilita l'ordinamento automatico
                     });
 
-                    // Evidenzia la riga "Total"
-                    $('#dataTable tbody tr:first').addClass('total-row');
+                    // Funzione di formattazione condizionale
+                    table.rows().every(function() {
+                        var data = this.data();
+                        // Escludi la riga "Total" dalla formattazione
+                        if (data["player"] === "Total") {
+                            return;
+                        }
+                        var cIndex = parseFloat(data["C-INDEX"]);  // Prende il valore di C-INDEX
+
+                        if (!isNaN(cIndex)) {
+                            // Trova l'indice delle colonne "Total Points" e "C-INDEX"
+                            var cIndexCol = $("th").filter(function() { return $(this).text() === "C-INDEX"; }).index();
+                            var totalPointsCol = $("th").filter(function() { return $(this).text() === "Total Points"; }).index();
+
+                            // Applica i colori in base al valore di C-INDEX
+                            var color = "";
+                            if (cIndex > 1) color = "green";
+                            else if (cIndex < 0.9) color = "red";
+                            else color = "gold";
+
+                            // Colora le celle corrispondenti
+                            $(this.node()).find("td").eq(cIndexCol).css("background-color", color);
+                            $(this.node()).find("td").eq(totalPointsCol).css("background-color", color);
+                        }
+                    });
                 });
         });
     </script>
