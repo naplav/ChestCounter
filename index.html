@@ -1,64 +1,64 @@
 
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[ALB] Chest Counter</title>
+    <!DOCTYPE html>
+    <html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>[ALB] Chest Counter</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
 
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .container {
-            margin-top: 100px;
-            max-width: 100%;
-        }
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .table-responsive {
-            overflow-x: auto;
-            width: 100%;
-        }
-        #dataTable {
-            width: 100% !important;
-        }
-        .total-row {
-            font-weight: bold !important;
-            background-color: #ffc107 !important;  /* Sfondo giallo */
-        }
-        .dataTables_wrapper .dataTables_scrollBody {
-            max-height: 70vh !important;
-            overflow-y: auto !important;
-        }
-    </style>
-</head>
-<body>
+        <style>
+            body {
+                background-color: #f8f9fa;
+            }
+            .container {
+                margin-top: 100px;
+                max-width: 100%;
+            }
+            .card {
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            .table-responsive {
+                overflow-x: auto;
+                width: 100%;
+            }
+            #dataTable {
+                width: 100% !important;
+            }
+            .total-row {
+                font-weight: bold !important;
+                background-color: #ffc107 !important;  /* Sfondo giallo */
+            }
+            .dataTables_wrapper .dataTables_scrollBody {
+                max-height: 70vh !important;
+                overflow-y: auto !important;
+            }
+        </style>
+    </head>
+    <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">[ALB] Chest Counter</a>
-        </div>
-    </nav>
+        <!-- Navbar -->
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">[ALB] Chest Counter</a>
+            </div>
+        </nav>
 
-    <!-- Contenitore principale -->
-    <div class="container">
-        <div class="card p-4">
-            <h2 class="text-center">[ALB] Chest Counter</h2>
-            <div class="table-responsive">
-                <table id="dataTable" class="table table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>player</th>
+        <!-- Contenitore principale -->
+        <div class="container">
+            <div class="card p-4">
+                <h2 class="text-center">[ALB] Chest Counter</h2>
+                <div class="table-responsive">
+                    <table id="dataTable" class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>player</th>
 <th>Total Points</th>
 <th>C-INDEX</th>
 <th>Total Chests</th>
@@ -95,31 +95,31 @@
 <th>RC30</th>
 <th>Triumph</th>
 <th>Vault</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- I dati verranno inseriti qui dinamicamente -->
-                    </tbody>
-                </table>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- I dati verranno inseriti qui dinamicamente -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- jQuery e DataTables -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+        <!-- jQuery e DataTables -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            fetch('https://script.google.com/macros/s/AKfycbzZyEv9E5AIb5DOGkkj3mqBRiCRTR3hcjVO_seMONIrgrqn5hb_MrDCY3XyfJzIVWSg/exec')
-                .then(response => response.json())
-                .then(data => {
-                    var table = $('#dataTable').DataTable({
-                        data: data.data,
-                        columns: [{ data: "player" },
+        <script>
+            $(document).ready(function() {
+                fetch('https://script.google.com/macros/s/AKfycbzZyEv9E5AIb5DOGkkj3mqBRiCRTR3hcjVO_seMONIrgrqn5hb_MrDCY3XyfJzIVWSg/exec')
+                    .then(response => response.json())
+                    .then(data => {
+                        var table = $('#dataTable').DataTable({
+                            data: data.data,
+                            columns: [{ data: "player" },
 { data: "Total Points" },
 { data: "C-INDEX" },
 { data: "Total Chests" },
@@ -156,61 +156,62 @@
 { data: "RC30" },
 { data: "Triumph" },
 { data: "Vault" },],
-                        paging: false,
-                        scrollY: "70vh",
-                        scrollX: true,
-                        scrollCollapse: true,
-                        order: []  // Disabilita l'ordinamento automatico
+                            paging: false,
+                            scrollY: "70vh",
+                            scrollX: true,
+                            scrollCollapse: true,
+                            order: []  // Disabilita l'ordinamento automatico
+                        });
+
+                        // Funzione di formattazione condizionale
+                        table.rows().every(function() {
+                            var data = this.data();
+                            // Escludi la riga "Total" dalla formattazione
+                            if (data["player"] === "Total") {
+                                // Rendi la riga "Total" visibile con sfondo giallo
+                                $(this.node()).find("td").css("background-color", "#ffc107");  // Giallo
+                                $(this.node()).find("td").css("font-weight", "bold");  // Grassetto
+                                return;
+                            }
+                            var cIndex = parseFloat(data["C-INDEX"]);  // Prende il valore di C-INDEX
+                            var ec20Plus = parseFloat(data["EC 20+"]);  // Prende il valore di EC 20+
+
+                            if (!isNaN(cIndex)) {
+                                // Trova l'indice delle colonne "Total Points" e "C-INDEX"
+                                var cIndexCol = $("th").filter(function() { return $(this).text() === "C-INDEX"; }).index();
+                                var totalPointsCol = $("th").filter(function() { return $(this).text() === "Total Points"; }).index();
+
+                                // Applica i colori in base al valore di C-INDEX
+                                var color = "";
+                                if (cIndex > 1) color = "#d4edda";  // Verde chiaro
+                                else if (cIndex < 0.9) color = "#f8d7da";  // Rosso chiaro
+                                else color = "#fff3cd";  // Giallo chiaro
+
+                                // Colora le celle corrispondenti
+                                $(this.node()).find("td").eq(cIndexCol).css("background-color", color);
+                                $(this.node()).find("td").eq(totalPointsCol).css("background-color", color);
+                            }
+
+                            // Formattazione condizionale per la colonna EC 20+
+                            if (!isNaN(ec20Plus)) {
+                                var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
+
+                                // Calcola la media
+                                var lowerBound = 0.5 * 15.392857142857142;
+                                var upperBound = 0.75 * 15.392857142857142;
+
+                                var ecColor = "";
+                                if (ec20Plus > upperBound) ecColor = "#d4edda";  // Verde chiaro
+                                else if (ec20Plus < lowerBound) ecColor = "#f8d7da";  // Rosso chiaro
+                                else ecColor = "#fff3cd";  // Giallo chiaro
+
+                                // Colora la cella EC 20+
+                                $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
+                            }
+                        });
                     });
-
-                    // Funzione di formattazione condizionale
-                    table.rows().every(function() {
-                        var data = this.data();
-                        // Escludi la riga "Total" dalla formattazione
-                        if (data["player"] === "Total") {
-                            // Rendi la riga "Total" visibile con sfondo giallo
-                            $(this.node()).find("td").css("background-color", "#ffc107");  // Giallo
-                            $(this.node()).find("td").css("font-weight", "bold");  // Grassetto
-                            return;
-                        }
-                        var cIndex = parseFloat(data["C-INDEX"]);  // Prende il valore di C-INDEX
-                        var ec20Plus = parseFloat(data["EC 20+"]);  // Prende il valore di EC 20+
-
-                        if (!isNaN(cIndex)) {
-                            // Trova l'indice delle colonne "Total Points" e "C-INDEX"
-                            var cIndexCol = $("th").filter(function() { return $(this).text() === "C-INDEX"; }).index();
-                            var totalPointsCol = $("th").filter(function() { return $(this).text() === "Total Points"; }).index();
-
-                            // Applica i colori in base al valore di C-INDEX
-                            var color = "";
-                            if (cIndex > 1) color = "#d4edda";  // Verde chiaro
-                            else if (cIndex < 0.9) color = "#f8d7da";  // Rosso chiaro
-                            else color = "#fff3cd";  // Giallo chiaro
-
-                            // Colora le celle corrispondenti
-                            $(this.node()).find("td").eq(cIndexCol).css("background-color", color);
-                            $(this.node()).find("td").eq(totalPointsCol).css("background-color", color);
-                        }
-
-                        // Formattazione condizionale per la colonna EC 20+
-                        if (!isNaN(ec20Plus)) {
-                            var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
-
-                            // Calcola la media
-                            var lowerBound = 0.5 * 15.392857142857142;
-                            var upperBound = 0.75 * 15.392857142857142;
-
-                            var ecColor = "";
-                            if (ec20Plus > upperBound) ecColor = "#d4edda";  // Verde chiaro
-                            else if (ec20Plus < lowerBound) ecColor = "#f8d7da";  // Rosso chiaro
-                            else ecColor = "#fff3cd";  // Giallo chiaro
-
-                            // Colora la cella EC 20+
-                            $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
-                        }
-                    });
-                });
-        });
-    </script>
-</body>
-</html>
+            });
+        </script>
+    </body>
+    </html>
+    
