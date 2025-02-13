@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chest Counter</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+  <h1>Chest Counter</h1>
+  <table id="dataTable" class="display">
+    <thead>
+      <tr>
+        <th>player</th>
+<th>Total Points</th>
+<th>C-INDEX</th>
+<th>Total Chests</th>
+<th>EC 20+</th>
+<th>Arachne</th>
+<th>Bank Bronze Chest</th>
+<th>Bank Golden Chest</th>
+<th>Bank Silver Chest</th>
+<th>Bank Wooden Chest</th>
+<th>CC10</th>
+<th>CC15</th>
+<th>CC20</th>
+<th>CC25</th>
+<th>CC5</th>
+<th>CT10</th>
+<th>CT15</th>
+<th>CT20</th>
+<th>CT25</th>
+<th>CT30</th>
+<th>EC15</th>
+<th>EC20</th>
+<th>EC25</th>
+<th>EC30</th>
+<th>EC35</th>
+<th>Heroic 16-20</th>
+<th>Heroic 21-25</th>
+<th>Heroic 26-30</th>
+<th>Heroic 41-45</th>
+<th>Others</th>
+<th>RC10</th>
+<th>RC15</th>
+<th>RC20</th>
+<th>RC25</th>
+<th>RC30</th>
+<th>Triumph</th>
+<th>Vault</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- I dati verranno inseriti qui dinamicamente -->
+    </tbody>
+  </table>
+
+  <script>
+    $(document).ready(function() {
+      // Richiama i dati dall'API di Google Apps Script
+      fetch('https://script.google.com/macros/s/AKfycbzZyEv9E5AIb5DOGkkj3mqBRiCRTR3hcjVO_seMONIrgrqn5hb_MrDCY3XyfJzIVWSg/exec')
+        .then(response => response.json())
+        .then(data => {
+          $('#dataTable').DataTable({
+            data: data.data,
+            columns: [
+              { data: "player" },
+{ data: "Total Points" },
+{ data: "C-INDEX" },
+{ data: "Total Chests" },
+{ data: "EC 20+" },
+{ data: "Arachne" },
+{ data: "Bank Bronze Chest" },
+{ data: "Bank Golden Chest" },
+{ data: "Bank Silver Chest" },
+{ data: "Bank Wooden Chest" },
+{ data: "CC10" },
+{ data: "CC15" },
+{ data: "CC20" },
+{ data: "CC25" },
+{ data: "CC5" },
+{ data: "CT10" },
+{ data: "CT15" },
+{ data: "CT20" },
+{ data: "CT25" },
+{ data: "CT30" },
+{ data: "EC15" },
+{ data: "EC20" },
+{ data: "EC25" },
+{ data: "EC30" },
+{ data: "EC35" },
+{ data: "Heroic 16-20" },
+{ data: "Heroic 21-25" },
+{ data: "Heroic 26-30" },
+{ data: "Heroic 41-45" },
+{ data: "Others" },
+{ data: "RC10" },
+{ data: "RC15" },
+{ data: "RC20" },
+{ data: "RC25" },
+{ data: "RC30" },
+{ data: "Triumph" },
+{ data: "Vault" },
+            ]
+          });
+        });
+    });
+  </script>
+</body>
+</html>
