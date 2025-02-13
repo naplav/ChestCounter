@@ -24,7 +24,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .total-row {
-            background-color: #ffc107 !important;  /* Evidenzia la riga 'Total' */
+            background-color: #ffc107 !important;
             font-weight: bold;
         }
         .dataTables_wrapper .dataTables_scrollBody {
@@ -112,9 +112,18 @@
                     let headers = data.headers;
                     let rows = data.data;
 
+                    // Trova la riga "Total" e rimuovila dai dati
+                    let totalRow = rows.find(row => row[headers[0]] === "Total");
+                    let filteredRows = rows.filter(row => row[headers[0]] !== "Total");
+
+                    // Ricrea i dati mettendo "Total" come prima riga
+                    let finalData = [];
+                    if (totalRow) finalData.push(totalRow); // Aggiunge "Total" in cima
+                    finalData = finalData.concat(filteredRows); // Aggiunge il resto delle righe
+
                     // Inizializza DataTable
-                    let table = $('#dataTable').DataTable({
-                        data: rows,
+                    $('#dataTable').DataTable({
+                        data: finalData,
                         columns: [{ data: "player" },
 { data: "Total Points" },
 { data: "C-INDEX" },
@@ -155,10 +164,11 @@
                         paging: false,
                         scrollY: "70vh",
                         scrollX: true,
-                        scrollCollapse: true
+                        scrollCollapse: true,
+                        order: []  // Disabilita l'ordinamento automatico
                     });
 
-                    // Aggiunge la classe evidenziata alla prima riga (Total)
+                    // Evidenzia la riga "Total"
                     $('#dataTable tbody tr:first').addClass('total-row');
                 });
         });
