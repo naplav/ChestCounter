@@ -168,7 +168,9 @@
                         var data = this.data();
                         // Escludi la riga "Total" dalla formattazione
                         if (data["player"] === "Total") {
-                            $(this.node()).addClass('total-row'); // Aggiungi la classe 'total-row'
+                            // Rendi la riga "Total" visibile con sfondo giallo
+                            $(this.node()).find("td").css("background-color", "#ffc107");  // Giallo
+                            $(this.node()).find("td").css("font-weight", "bold");  // Grassetto
                             return;
                         }
                         var cIndex = parseFloat(data["C-INDEX"]);  // Prende il valore di C-INDEX
