@@ -32,7 +32,8 @@
             width: 100% !important;
         }
         .total-row {
-            font-weight: bold;
+            font-weight: bold !important;
+            background-color: #ffc107 !important;  /* Sfondo giallo */
         }
         .dataTables_wrapper .dataTables_scrollBody {
             max-height: 70vh !important;
@@ -167,6 +168,7 @@
                         var data = this.data();
                         // Escludi la riga "Total" dalla formattazione
                         if (data["player"] === "Total") {
+                            $(this.node()).addClass('total-row'); // Aggiungi la classe 'total-row'
                             return;
                         }
                         var cIndex = parseFloat(data["C-INDEX"]);  // Prende il valore di C-INDEX
