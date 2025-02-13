@@ -24,8 +24,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .total-row {
-            background-color: #ffc107 !important;
+            background-color: #ffeb3b !important;  /* Giallo più luminoso per il Total */
             font-weight: bold;
+            color: #6c757d;  /* Testo scuro per contrastare con lo sfondo chiaro */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Leggera ombra */
         }
         .dataTables_wrapper .dataTables_scrollBody {
             max-height: 70vh !important;
@@ -163,7 +165,6 @@
                             return;
                         }
                         var cIndex = parseFloat(data["C-INDEX"]);  // Prende il valore di C-INDEX
-                        var ec20Plus = parseFloat(data["EC 20+"]);  // Prende il valore di EC 20+
 
                         if (!isNaN(cIndex)) {
                             // Trova l'indice delle colonne "Total Points" e "C-INDEX"
@@ -181,21 +182,24 @@
                             $(this.node()).find("td").eq(totalPointsCol).css("background-color", color);
                         }
 
-                        // Formattazione condizionale per la colonna EC 20+
-                        if (!isNaN(ec20Plus)) {
-                            var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
+                        // Formattazione condizionale per "EC 20+" (nuove regole)
+                        var ec20plusValue = parseFloat(data["EC 20+"]);
+                        if (!isNaN(ec20plusValue)) {
+                            var ec20plusCol = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
 
-                            // Calcola la media
-                            var lowerBound = 0.5 * 15.392857142857142;
-                            var upperBound = 0.75 * 15.392857142857142;
+                            // Calcola la media della colonna EC 20+
+                            var total = parseFloat(data["Total"]);
+                            var rowsCount = table.rows().count() - 1;  // Escludi la riga Total
+                            var ec20plusAverage = total / rowsCount;
 
+                            // Applica i colori in base al valore di EC 20+
                             var ecColor = "";
-                            if (ec20Plus > upperBound) ecColor = "#d4edda";  // Verde chiaro
-                            else if (ec20Plus < lowerBound) ecColor = "#f8d7da";  // Rosso chiaro
+                            if (ec20plusValue > 0.75 * ec20plusAverage) ecColor = "#d4edda";  // Verde chiaro
+                            else if (ec20plusValue < 0.5 * ec20plusAverage) ecColor = "#f8d7da";  // Rosso chiaro
                             else ecColor = "#fff3cd";  // Giallo chiaro
 
-                            // Colora la cella EC 20+
-                            $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
+                            // Colora la cella corrispondente per "EC 20+"
+                            $(this.node()).find("td").eq(ec20plusCol).css("background-color", ecColor);
                         }
                     });
                 });
