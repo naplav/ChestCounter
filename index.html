@@ -18,15 +18,25 @@
         }
         .container {
             margin-top: 100px;
+            max-width: 100%;
         }
         .card {
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        .table-responsive {
+            overflow-x: auto;
+            width: 100%;
+        }
+        #dataTable {
+            width: 100% !important;
+        }
         .total-row {
-            background-color: #f8d7da !important;  /* Colore di sfondo rosso chiaro */
-            font-weight: bold !important;
-            border: 2px solid #000;  /* Bordo nero per evidenziare */
+            background-color: #ffc107 !important;
+            font-weight: bold;
+            border: 2px solid #333;
+            color: #333;
+            text-align: center;
         }
         .dataTables_wrapper .dataTables_scrollBody {
             max-height: 70vh !important;
@@ -161,8 +171,6 @@
                         var data = this.data();
                         // Escludi la riga "Total" dalla formattazione
                         if (data["player"] === "Total") {
-                            // Aggiungi la classe total-row per la riga "Total"
-                            $(this.node()).addClass('total-row');
                             return;
                         }
                         var cIndex = parseFloat(data["C-INDEX"]);  // Prende il valore di C-INDEX
