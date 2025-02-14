@@ -119,7 +119,6 @@
                 fetch('https://script.google.com/macros/s/AKfycbw60jwURFhRECA2JHCt7g3j1dNI_z3By0sIgZMFbfnGBcSsQvyPtlhsbVLtS-OVmBuz/exec?nocache=' + new Date().getTime())')
                     .then(response => response.json())
                     .then(data => {
-                        console.log("Dati ricevuti:", data);
                         if ($.fn.DataTable.isDataTable('#dataTable')) {
                             $('#dataTable').DataTable().clear().destroy();
                         }
@@ -195,8 +194,8 @@
 
                             if (!isNaN(ec20Plus)) {
                                 var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
-                                var lowerBound = 0.75 * 24.546511627906977;
-                                var upperBound = 1.1 * 24.546511627906977;
+                                var lowerBound = 0.75 * 24.651162790697676;
+                                var upperBound = 1.1 * 24.651162790697676;
                                 var ecColor = ec20Plus > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
                                 $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
                             }
