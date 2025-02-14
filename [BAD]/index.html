@@ -116,9 +116,10 @@
 
         <script>
             $(document).ready(function() {
-                fetch('https://script.google.com/macros/s/AKfycbw60jwURFhRECA2JHCt7g3j1dNI_z3By0sIgZMFbfnGBcSsQvyPtlhsbVLtS-OVmBuz/exec')
+                fetch('https://script.google.com/macros/s/AKfycbw60jwURFhRECA2JHCt7g3j1dNI_z3By0sIgZMFbfnGBcSsQvyPtlhsbVLtS-OVmBuz/exec?nocache=' + new Date().getTime())')
                     .then(response => response.json())
                     .then(data => {
+                        console.log("Dati ricevuti:", data);
                         if ($.fn.DataTable.isDataTable('#dataTable')) {
                             $('#dataTable').DataTable().clear().destroy();
                         }
