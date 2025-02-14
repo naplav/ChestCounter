@@ -54,11 +54,7 @@
         <div class="container">
             <div class="card p-4">
                 <h2 class="text-center">[BAD] Chest Counter</h2>
-<<<<<<< HEAD
                 <p class="text-center">Last update: 2025-02-13 08:16:00</p>
-=======
-                <p class="text-center">Last update: 2025-02-13 22:30:37</p>
->>>>>>> c6ff0eb562fbafdd484ffc68e9cefc3ddfe14345
                 <div class="table-responsive">
                     <table id="dataTable" class="table table-striped table-hover">
                         <thead class="table-dark">
@@ -68,17 +64,18 @@
 <th>C-INDEX</th>
 <th>Total Chests</th>
 <th>EC 20+</th>
+<th>Arachne</th>
 <th>Bank Bronze Chest</th>
 <th>Bank Golden Chest</th>
 <th>Bank Precious Chest</th>
 <th>Bank Silver Chest</th>
 <th>Bank Wooden Chest</th>
-<th>Bloomfang's</th>
 <th>CC10</th>
 <th>CC15</th>
 <th>CC20</th>
 <th>CC25</th>
 <th>CC5</th>
+<th>CT10</th>
 <th>CT15</th>
 <th>CT20</th>
 <th>CT25</th>
@@ -87,15 +84,18 @@
 <th>EC20</th>
 <th>EC25</th>
 <th>EC30</th>
-<th>Epic Undead</th>
+<th>EC35</th>
 <th>Heroic 16-20</th>
+<th>Heroic 21-25</th>
 <th>Heroic 26-30</th>
+<th>Heroic 41-45</th>
 <th>Others</th>
 <th>RC10</th>
 <th>RC15</th>
 <th>RC20</th>
 <th>RC25</th>
 <th>RC30</th>
+<th>Triumph</th>
 <th>Vault</th>
                             </tr>
                         </thead>
@@ -116,11 +116,7 @@
 
         <script>
             $(document).ready(function() {
-<<<<<<< HEAD
                 fetch('https://script.google.com/macros/s/AKfycbw60jwURFhRECA2JHCt7g3j1dNI_z3By0sIgZMFbfnGBcSsQvyPtlhsbVLtS-OVmBuz/exec')
-=======
-                fetch('https://script.google.com/macros/s/AKfycbw3fdJFa2p3OmHesDk4dA11xpuJcIjqlWVhzZ8hJgsMmYEivJCxmU8-s3MKEqAOEJaQBA/exec')
->>>>>>> c6ff0eb562fbafdd484ffc68e9cefc3ddfe14345
                     .then(response => response.json())
                     .then(data => {
                         var table = $('#dataTable').DataTable({
@@ -130,17 +126,18 @@
 { data: "C-INDEX" },
 { data: "Total Chests" },
 { data: "EC 20+" },
+{ data: "Arachne" },
 { data: "Bank Bronze Chest" },
 { data: "Bank Golden Chest" },
 { data: "Bank Precious Chest" },
 { data: "Bank Silver Chest" },
 { data: "Bank Wooden Chest" },
-{ data: "Bloomfang's" },
 { data: "CC10" },
 { data: "CC15" },
 { data: "CC20" },
 { data: "CC25" },
 { data: "CC5" },
+{ data: "CT10" },
 { data: "CT15" },
 { data: "CT20" },
 { data: "CT25" },
@@ -149,15 +146,18 @@
 { data: "EC20" },
 { data: "EC25" },
 { data: "EC30" },
-{ data: "Epic Undead" },
+{ data: "EC35" },
 { data: "Heroic 16-20" },
+{ data: "Heroic 21-25" },
 { data: "Heroic 26-30" },
+{ data: "Heroic 41-45" },
 { data: "Others" },
 { data: "RC10" },
 { data: "RC15" },
 { data: "RC20" },
 { data: "RC25" },
 { data: "RC30" },
+{ data: "Triumph" },
 { data: "Vault" },],
                             paging: false,
                             scrollY: "70vh",
@@ -200,13 +200,8 @@
                                 var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
 
                                 // Calcola la media
-<<<<<<< HEAD
-                                var lowerBound = 0.75 * 24.3953488372093;
-                                var upperBound = 0.1 * 24.3953488372093;
-=======
-                                var lowerBound = 0.5 * 2.0;
-                                var upperBound = 0.75 * 2.0;
->>>>>>> c6ff0eb562fbafdd484ffc68e9cefc3ddfe14345
+                                var lowerBound = 0.75 * 24.453488372093023;
+                                var upperBound = 0.1 * 24.453488372093023;
 
                                 var ecColor = "";
                                 if (ec20Plus > upperBound) ecColor = "#d4edda";  // Verde chiaro
