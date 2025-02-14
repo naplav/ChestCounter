@@ -73,8 +73,6 @@
                             
                                 <th>Bank Golden Chest</th>
                             
-                                <th>Bank Magic Chest</th>
-                            
                                 <th>Bank Precious Chest</th>
                             
                                 <th>Bank Silver Chest</th>
@@ -113,37 +111,17 @@
                             
                                 <th>EC35</th>
                             
-                                <th>Epic Undead</th>
-                            
-                                <th>Fenrir</th>
-                            
-                                <th>Heroic 16-20</th>
-                            
-                                <th>Heroic 21-25</th>
-                            
-                                <th>Heroic 26-30</th>
-                            
                                 <th>Heroic 31-35</th>
-                            
-                                <th>Heroic 36-40</th>
                             
                                 <th>Heroic 41-45</th>
                             
-                                <th>Jormungandr Shop</th>
-                            
                                 <th>Others</th>
-                            
-                                <th>RC10</th>
-                            
-                                <th>RC15</th>
                             
                                 <th>RC20</th>
                             
                                 <th>RC25</th>
                             
                                 <th>RC30</th>
-                            
-                                <th>Triumph</th>
                             
                                 <th>Vault</th>
                             
@@ -191,8 +169,6 @@
                             
                                 { data: "Bank Golden Chest" },
                             
-                                { data: "Bank Magic Chest" },
-                            
                                 { data: "Bank Precious Chest" },
                             
                                 { data: "Bank Silver Chest" },
@@ -231,37 +207,17 @@
                             
                                 { data: "EC35" },
                             
-                                { data: "Epic Undead" },
-                            
-                                { data: "Fenrir" },
-                            
-                                { data: "Heroic 16-20" },
-                            
-                                { data: "Heroic 21-25" },
-                            
-                                { data: "Heroic 26-30" },
-                            
                                 { data: "Heroic 31-35" },
-                            
-                                { data: "Heroic 36-40" },
                             
                                 { data: "Heroic 41-45" },
                             
-                                { data: "Jormungandr Shop" },
-                            
                                 { data: "Others" },
-                            
-                                { data: "RC10" },
-                            
-                                { data: "RC15" },
                             
                                 { data: "RC20" },
                             
                                 { data: "RC25" },
                             
                                 { data: "RC30" },
-                            
-                                { data: "Triumph" },
                             
                                 { data: "Vault" },
                             
@@ -297,8 +253,8 @@
 
                         if (!isNaN(ec20Plus)) {
                             var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
-                            var lowerBound = 0.75 * 31.333333333333332;
-                            var upperBound = 1.0 * 31.333333333333332;
+                            var lowerBound = 0.75 * 3.1374045801526718;
+                            var upperBound = 1.0 * 3.1374045801526718;
                             var ecColor = ec20Plus > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
                             $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
                         }
