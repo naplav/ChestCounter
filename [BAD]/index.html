@@ -279,18 +279,21 @@
                             $(this.node()).find("td").css("background-color", "#ffc107").css("font-weight", "bold");
                             return;
                         }
+
                         var cIndex = parseFloat(data["C-INDEX"]);
-                        var ec20Plus = parseFloat(data["EC 20+"]);
 
                         if (!isNaN(cIndex)) {
                             var cIndexCol = $("th").filter(function() { return $(this).text() === "C-INDEX"; }).index();
                             var totalPointsCol = $("th").filter(function() { return $(this).text() === "Total Points"; }).index();
                             var lowerBound = 0.9;
                             var upperBound = 1.0;
-                            var color = cIndex > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
+                            var color = cIndex > upperBound ? "#d4edda" : cIndex < lowerBound ? "#f8d7da" : "#fff3cd";
                             $(this.node()).find("td").eq(cIndexCol).css("background-color", color);
                             $(this.node()).find("td").eq(totalPointsCol).css("background-color", color);
                         }
+
+                        var ec20Plus = parseFloat(data["EC 20+"]);
+
 
                         if (!isNaN(ec20Plus)) {
                             var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
