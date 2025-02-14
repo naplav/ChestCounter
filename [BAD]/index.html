@@ -64,12 +64,13 @@
 <th>C-INDEX</th>
 <th>Total Chests</th>
 <th>EC 20+</th>
-<th>Arachne</th>
 <th>Bank Bronze Chest</th>
 <th>Bank Golden Chest</th>
+<th>Bank Magic Chest</th>
 <th>Bank Precious Chest</th>
 <th>Bank Silver Chest</th>
 <th>Bank Wooden Chest</th>
+<th>Bloomfang's</th>
 <th>CC10</th>
 <th>CC15</th>
 <th>CC20</th>
@@ -85,10 +86,15 @@
 <th>EC25</th>
 <th>EC30</th>
 <th>EC35</th>
+<th>Epic Undead</th>
+<th>Fenrir</th>
 <th>Heroic 16-20</th>
 <th>Heroic 21-25</th>
 <th>Heroic 26-30</th>
+<th>Heroic 31-35</th>
+<th>Heroic 36-40</th>
 <th>Heroic 41-45</th>
+<th>Jormungandr Shop</th>
 <th>Others</th>
 <th>RC10</th>
 <th>RC15</th>
@@ -130,12 +136,13 @@
 { data: "C-INDEX" },
 { data: "Total Chests" },
 { data: "EC 20+" },
-{ data: "Arachne" },
 { data: "Bank Bronze Chest" },
 { data: "Bank Golden Chest" },
+{ data: "Bank Magic Chest" },
 { data: "Bank Precious Chest" },
 { data: "Bank Silver Chest" },
 { data: "Bank Wooden Chest" },
+{ data: "Bloomfang's" },
 { data: "CC10" },
 { data: "CC15" },
 { data: "CC20" },
@@ -151,10 +158,15 @@
 { data: "EC25" },
 { data: "EC30" },
 { data: "EC35" },
+{ data: "Epic Undead" },
+{ data: "Fenrir" },
 { data: "Heroic 16-20" },
 { data: "Heroic 21-25" },
 { data: "Heroic 26-30" },
+{ data: "Heroic 31-35" },
+{ data: "Heroic 36-40" },
 { data: "Heroic 41-45" },
+{ data: "Jormungandr Shop" },
 { data: "Others" },
 { data: "RC10" },
 { data: "RC15" },
@@ -194,8 +206,8 @@
 
                             if (!isNaN(ec20Plus)) {
                                 var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
-                                var lowerBound = 0.75 * 24.651162790697676;
-                                var upperBound = 1.1 * 24.651162790697676;
+                                var lowerBound = 0.75 * 30.858757062146893;
+                                var upperBound = 1.1 * 30.858757062146893;
                                 var ecColor = ec20Plus > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
                                 $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
                             }
