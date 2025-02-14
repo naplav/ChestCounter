@@ -122,7 +122,7 @@
 
         <script>
             $(document).ready(function() {
-                fetch('https://script.google.com/macros/s/AKfycbw60jwURFhRECA2JHCt7g3j1dNI_z3By0sIgZMFbfnGBcSsQvyPtlhsbVLtS-OVmBuz/exec?nocache=' + new Date().getTime())')
+                fetch('https://script.google.com/macros/s/AKfycbw60jwURFhRECA2JHCt7g3j1dNI_z3By0sIgZMFbfnGBcSsQvyPtlhsbVLtS-OVmBuz/exec')
                     .then(response => response.json())
                     .then(data => {
                         if ($.fn.DataTable.isDataTable('#dataTable')) {
