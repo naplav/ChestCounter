@@ -53,7 +53,7 @@
     <div class="container">
         <div class="card p-4">
             <h2 class="text-center">[BAD] Chest Counter</h2>
-            <p class="text-center">Last update: 2025-02-14 19:13:14</p>
+            <p class="text-center">Last update: 2025-02-14 19:18:57</p>
             <div class="table-responsive">
                 <table id="dataTable" class="table table-striped table-hover">
                     <thead class="table-dark">
@@ -294,8 +294,8 @@
 
                         if (!isNaN(ec20Plus)) {
                             var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
-                            var lowerBound = 0.75 * 31.26553672316384;
-                            var upperBound = 1.0 * 31.26553672316384;
+                            var lowerBound = 0.75 * 31.333333333333332;
+                            var upperBound = 1.0 * 31.333333333333332;
                             var ecColor = ec20Plus > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
                             $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
                         }
