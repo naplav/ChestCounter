@@ -12,7 +12,27 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
 
     <style>
+        
+        .container {
+            margin-top: 100px;
+            max-width: 100%;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .table-responsive {
+            overflow-x: auto;
+            width: 100%;
+        }
+        #dataTable {
+            width: 100% !important;
+        }
 
+        .dataTables_wrapper .dataTables_scrollBody {
+            max-height: 70vh !important;
+            overflow-y: auto !important;
+        }
     </style>
 </head>
 <body>
