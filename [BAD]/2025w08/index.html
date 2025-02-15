@@ -14254,29 +14254,29 @@
             });
 
             table.rows().every(function() {
-                if (rowIdx === 0) return;
-                var data = this.data();
-                var cIndexCol = $("th").filter(function() { return $(this).text() === "C-INDEX"; }).index();
-                var totalPointsCol = $("th").filter(function() { return $(this).text() === "Total Points"; }).index();
-                var cIndex = parseFloat(data[cIndexCol]);
+                if (rowIdx > 0)
+                    var data = this.data();
+                    var cIndexCol = $("th").filter(function() { return $(this).text() === "C-INDEX"; }).index();
+                    var totalPointsCol = $("th").filter(function() { return $(this).text() === "Total Points"; }).index();
+                    var cIndex = parseFloat(data[cIndexCol]);
 
-                if (!isNaN(cIndex)) {
-                    var lowerBound = 0.9;
-                    var upperBound = 1.0;
-                    var color = cIndex > upperBound ? "#d4edda" : cIndex < lowerBound ? "#f8d7da" : "#fff3cd";
-                    $(this.node()).find("td").eq(cIndexCol).css("background-color", color);
-                    $(this.node()).find("td").eq(totalPointsCol).css("background-color", color);
-                }
+                    if (!isNaN(cIndex)) {
+                        var lowerBound = 0.9;
+                        var upperBound = 1.0;
+                        var color = cIndex > upperBound ? "#d4edda" : cIndex < lowerBound ? "#f8d7da" : "#fff3cd";
+                        $(this.node()).find("td").eq(cIndexCol).css("background-color", color);
+                        $(this.node()).find("td").eq(totalPointsCol).css("background-color", color);
+                    }
 
-                var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
-                var ec20Plus = parseFloat(data[ec20Col]);
+                    var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
+                    var ec20Plus = parseFloat(data[ec20Col]);
 
-                if (!isNaN(ec20Plus)) {
-                    var lowerBound = 0.75 * 56.4320987654321;
-                    var upperBound = 1.0 * 56.4320987654321;
-                    var ecColor = ec20Plus > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
-                    $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
-                }
+                    if (!isNaN(ec20Plus)) {
+                        var lowerBound = 0.75 * 56.4320987654321;
+                        var upperBound = 1.0 * 56.4320987654321;
+                        var ecColor = ec20Plus > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
+                        $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
+                    }
             });
         });
     </script>
