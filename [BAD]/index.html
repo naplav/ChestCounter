@@ -50,16 +50,43 @@
     <div class="container">
         <div class="card p-4">
             <h1 class="text-center">[BAD] - Chest Counter</h1>
-            <p class="text-center">Last update: 2025-02-16 01:52:46 UTC+03:00</p>
+            <p class="text-center">Last update: 2025-02-16 02:09:17 UTC+03:00</p>
             <h2>Weekly Reports</h2>
-            <div>
-                
-                    <div class="week-link">
-                        <a href="2025w08/index.html">2025W08</a>
-                    </div>
-                
-            </div>
+            <table id="weekly-reports" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Week</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">End Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        <tr>
+                            <td><a href="2025w08/index.html">2025W08</a></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    
+                </tbody>
+            </table>
         </div>
     </div>
+
+    <!-- jQuery e DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#weekly-reports').DataTable({
+                //"paging": true,         // Abilita la paginazione
+                "searching": true,      // Abilita la ricerca
+                //"ordering": true,       // Abilita l'ordinamento
+                "info": true,           // Mostra info sulla tabella
+                "autoWidth": true,      // Auto-dimensiona le colonne
+            });
+        });
+    </script>
 </body>
 </html>
