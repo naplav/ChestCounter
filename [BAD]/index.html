@@ -75,8 +75,9 @@
 
     <script>
         $(document).ready(function() {
-            $('#weekly-reports').DataTable({
+            var table = $('#weekly-reports').DataTable({
                 paging: false,
+                scrollCollapse: true,
                 info: true,           // Mostra info sulla tabella
                 autoWidth: true,      // Auto-dimensiona le colonne
                 order: []
