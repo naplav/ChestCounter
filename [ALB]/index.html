@@ -53,7 +53,7 @@
     <div class="container">
         <div class="card p-4">
             <h2 class="text-center">[ALB] Chest Counter</h2>
-            <p class="text-center">Last update: 2025-02-14 22:44:36</p>
+            <p class="text-center">Last update: 2025-02-14 23:44:34</p>
             <div class="table-responsive">
                 <table id="dataTable" class="table table-striped table-hover">
                     <thead class="table-dark">
@@ -69,15 +69,9 @@
                             
                                 <th>EC 20+</th>
                             
-                                <th>Arachne</th>
-                            
                                 <th>Bank Bronze Chest</th>
                             
                                 <th>Bank Golden Chest</th>
-                            
-                                <th>Bank Precious Chest</th>
-                            
-                                <th>Bank Silver Chest</th>
                             
                                 <th>Bank Wooden Chest</th>
                             
@@ -93,15 +87,11 @@
                             
                                 <th>CT10</th>
                             
-                                <th>CT15</th>
-                            
                                 <th>CT20</th>
                             
                                 <th>CT25</th>
                             
                                 <th>CT30</th>
-                            
-                                <th>EC15</th>
                             
                                 <th>EC20</th>
                             
@@ -111,29 +101,15 @@
                             
                                 <th>EC35</th>
                             
-                                <th>Heroic 16-20</th>
-                            
                                 <th>Heroic 21-25</th>
                             
-                                <th>Heroic 26-30</th>
-                            
-                                <th>Heroic 41-45</th>
-                            
                                 <th>Others</th>
-                            
-                                <th>RC10</th>
-                            
-                                <th>RC15</th>
                             
                                 <th>RC20</th>
                             
                                 <th>RC25</th>
                             
                                 <th>RC30</th>
-                            
-                                <th>Triumph</th>
-                            
-                                <th>Vault</th>
                             
                         </tr>
                     </thead>
@@ -175,15 +151,9 @@
                             
                                 { data: "EC 20+" },
                             
-                                { data: "Arachne" },
-                            
                                 { data: "Bank Bronze Chest" },
                             
                                 { data: "Bank Golden Chest" },
-                            
-                                { data: "Bank Precious Chest" },
-                            
-                                { data: "Bank Silver Chest" },
                             
                                 { data: "Bank Wooden Chest" },
                             
@@ -199,15 +169,11 @@
                             
                                 { data: "CT10" },
                             
-                                { data: "CT15" },
-                            
                                 { data: "CT20" },
                             
                                 { data: "CT25" },
                             
                                 { data: "CT30" },
-                            
-                                { data: "EC15" },
                             
                                 { data: "EC20" },
                             
@@ -217,29 +183,15 @@
                             
                                 { data: "EC35" },
                             
-                                { data: "Heroic 16-20" },
-                            
                                 { data: "Heroic 21-25" },
                             
-                                { data: "Heroic 26-30" },
-                            
-                                { data: "Heroic 41-45" },
-                            
                                 { data: "Others" },
-                            
-                                { data: "RC10" },
-                            
-                                { data: "RC15" },
                             
                                 { data: "RC20" },
                             
                                 { data: "RC25" },
                             
                                 { data: "RC30" },
-                            
-                                { data: "Triumph" },
-                            
-                                { data: "Vault" },
                             
                         ],
                         paging: false,
@@ -273,8 +225,8 @@
 
                         if (!isNaN(ec20Plus)) {
                             var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
-                            var lowerBound = 0.75 * 26.441860465116278;
-                            var upperBound = 1.0 * 26.441860465116278;
+                            var lowerBound = 0.75 * 10.67741935483871;
+                            var upperBound = 1.0 * 10.67741935483871;
                             var ecColor = ec20Plus > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
                             $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
                         }
