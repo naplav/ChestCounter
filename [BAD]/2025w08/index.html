@@ -14254,6 +14254,7 @@
             });
 
             table.rows().every(function() {
+                if (rowIdx === 0) return;
                 var data = this.data();
                 var cIndexCol = $("th").filter(function() { return $(this).text() === "C-INDEX"; }).index();
                 var totalPointsCol = $("th").filter(function() { return $(this).text() === "Total Points"; }).index();
