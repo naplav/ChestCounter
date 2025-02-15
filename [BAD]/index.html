@@ -53,60 +53,60 @@
     <div class="container">
         <div class="card p-4">
             <h2 class="text-center">[BAD] Chest Counter</h2>
-            <p class="text-center">player</p>
-            <p class="text-center">Total Points - C-INDEX</p>
+            <p class="text-center">Last update: 2025-02-15 06:52:53 UTC+03:00</p>
+            <p class="text-center">Start: 2025-02-14 00:00:00 UTC+03:00 - End: 2025-02-19 23:59:59 UTC+03:00</p>
             <div class="table-responsive">
                 <table id="dataTable" class="table table-striped table-hover">
                     <thead class="table-dark">
                         <tr>
                             
-                                <th>Total</th>
+                                <th>player</th>
                             
-                                <th>21944</th>
+                                <th>Total Points</th>
                             
-                                <th>1</th>
+                                <th>C-INDEX</th>
                             
-                                <th>591</th>
+                                <th>Total Chests</th>
                             
-                                <th>220</th>
+                                <th>EC 20+</th>
                             
-                                <th>9</th>
+                                <th>Bank Bronze Chest</th>
                             
-                                <th>6</th>
+                                <th>Bank Golden Chest</th>
                             
-                                <th>6</th>
+                                <th>Bank Precious Chest</th>
                             
-                                <th>6</th>
+                                <th>Bank Silver Chest</th>
                             
-                                <th>6</th>
+                                <th>Bank Wooden Chest</th>
                             
-                                <th>2</th>
+                                <th>CC10</th>
                             
-                                <th>1</th>
+                                <th>CC15</th>
                             
-                                <th>3</th>
+                                <th>CC20</th>
                             
-                                <th>172</th>
+                                <th>CC25</th>
                             
-                                <th>1</th>
+                                <th>CT10</th>
                             
-                                <th>2</th>
+                                <th>CT30</th>
                             
-                                <th>1</th>
+                                <th>EC20</th>
                             
-                                <th>62</th>
+                                <th>EC25</th>
                             
-                                <th>136</th>
+                                <th>EC30</th>
                             
-                                <th>21</th>
+                                <th>EC35</th>
                             
-                                <th>128</th>
+                                <th>Epic Inferno</th>
                             
-                                <th>1</th>
+                                <th>Others</th>
                             
-                                <th>18</th>
+                                <th>RC25</th>
                             
-                                <th>10</th>
+                                <th>RC30</th>
                             
                         </tr>
                     </thead>
@@ -138,53 +138,53 @@
                         data: data.data,
                         columns: [
                             
-                                { data: "Total" },
+                                { data: "player" },
                             
-                                { data: "21944" },
+                                { data: "Total Points" },
                             
-                                { data: "1" },
+                                { data: "C-INDEX" },
                             
-                                { data: "591" },
+                                { data: "Total Chests" },
                             
-                                { data: "220" },
+                                { data: "EC 20+" },
                             
-                                { data: "9" },
+                                { data: "Bank Bronze Chest" },
                             
-                                { data: "6" },
+                                { data: "Bank Golden Chest" },
                             
-                                { data: "6" },
+                                { data: "Bank Precious Chest" },
                             
-                                { data: "6" },
+                                { data: "Bank Silver Chest" },
                             
-                                { data: "6" },
+                                { data: "Bank Wooden Chest" },
                             
-                                { data: "2" },
+                                { data: "CC10" },
                             
-                                { data: "1" },
+                                { data: "CC15" },
                             
-                                { data: "3" },
+                                { data: "CC20" },
                             
-                                { data: "172" },
+                                { data: "CC25" },
                             
-                                { data: "1" },
+                                { data: "CT10" },
                             
-                                { data: "2" },
+                                { data: "CT30" },
                             
-                                { data: "1" },
+                                { data: "EC20" },
                             
-                                { data: "62" },
+                                { data: "EC25" },
                             
-                                { data: "136" },
+                                { data: "EC30" },
                             
-                                { data: "21" },
+                                { data: "EC35" },
                             
-                                { data: "128" },
+                                { data: "Epic Inferno" },
                             
-                                { data: "1" },
+                                { data: "Others" },
                             
-                                { data: "18" },
+                                { data: "RC25" },
                             
-                                { data: "10" },
+                                { data: "RC30" },
                             
                         ],
                         paging: false,
@@ -196,7 +196,7 @@
 
                     table.rows().every(function() {
                         var data = this.data();
-                        if (data["Total"] === "Total") {
+                        if (data["player"] === "Total") {
                             $(this.node()).find("td").css("background-color", "#ffc107").css("font-weight", "bold");
                             return;
                         }
@@ -218,8 +218,8 @@
 
                         if (!isNaN(ec20Plus)) {
                             var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
-                            var lowerBound = 0.75 * 0;
-                            var upperBound = 1.0 * 0;
+                            var lowerBound = 0.75 * 8.8;
+                            var upperBound = 1.0 * 8.8;
                             var ecColor = ec20Plus > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
                             $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
                         }
