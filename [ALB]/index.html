@@ -53,7 +53,7 @@
     <div class="container">
         <div class="card p-4">
             <h2 class="text-center">[ALB] Chest Counter</h2>
-            <p class="text-center">Last update: 2025-02-15 14:04:11 UTC+03:00</p>
+            <p class="text-center">Last update: 2025-02-15 14:46:28 UTC+03:00</p>
             <p class="text-center">Start: 2025-02-14 00:00:00 UTC+03:00 - End: 2025-02-19 23:59:59 UTC+03:00</p>
             <div class="table-responsive">
                 <table id="dataTable" class="table table-striped table-hover">
@@ -117,6 +117,8 @@
                                 <th>RC25</th>
                             
                                 <th>RC30</th>
+                            
+                                <th>Triumph</th>
                             
                         </tr>
                     </thead>
@@ -206,6 +208,8 @@
                             
                                 { data: "RC30" },
                             
+                                { data: "Triumph" },
+                            
                         ],
                         paging: false,
                         scrollY: "70vh",
@@ -238,8 +242,8 @@
 
                         if (!isNaN(ec20Plus)) {
                             var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
-                            var lowerBound = 0.75 * 14.13888888888889;
-                            var upperBound = 1.0 * 14.13888888888889;
+                            var lowerBound = 0.75 * 14.680555555555555;
+                            var upperBound = 1.0 * 14.680555555555555;
                             var ecColor = ec20Plus > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
                             $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
                         }
