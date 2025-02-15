@@ -15,25 +15,6 @@
         body {
             background-color: #f8f9fa;
         }
-        .container {
-            margin-top: 100px;
-            max-width: 100%;
-        }
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .table-responsive {
-            overflow-x: auto;
-            width: 100%;
-        }
-        #dataTable {
-            width: 100% !important;
-        }
-        .first-row {
-            font-weight: bold !important;
-            background-color: #ffc107 !important;
-        }
         .dataTables_wrapper .dataTables_scrollBody {
             max-height: 70vh !important;
             overflow-y: auto !important;
@@ -99,6 +80,18 @@
                 "autoWidth": true,      // Auto-dimensiona le colonne
             });
         });
+        $(document).ready(function() {
+            $('#weekly-reports').DataTable({
+                paging: false,
+                info: true,           // Mostra info sulla tabella
+                autoWidth: true,      // Auto-dimensiona le colonne
+                order: []
+            });
+
+            $(table.row(0).node()).find("td").css({
+                "background-color": "#ffc107",
+                "font-weight": "bold"
+            });
     </script>
 </body>
 </html>
