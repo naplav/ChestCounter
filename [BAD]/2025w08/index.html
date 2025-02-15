@@ -14253,8 +14253,8 @@
                 "font-weight": "bold"
             });
 
-            table.rows().every(function() {
-                if (rowIdx > 0)
+            table.rows().every(function(rowIdx) {
+                if (rowIdx > 0) {
                     var data = this.data();
                     var cIndexCol = $("th").filter(function() { return $(this).text() === "C-INDEX"; }).index();
                     var totalPointsCol = $("th").filter(function() { return $(this).text() === "Total Points"; }).index();
@@ -14277,6 +14277,7 @@
                         var ecColor = ec20Plus > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
                         $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
                     }
+                }
             });
         });
     </script>
