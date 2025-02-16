@@ -44,7 +44,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">[BAD] Chest Counter 2025W08</a>
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input id="tableSearch" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             </form>
         </div>
     </nav>
@@ -15747,6 +15747,10 @@
                 columnDefs: [
                     { targets: "_all", className: "dt-head-center" }
                 ],
+            });
+
+            $('#tableSearch').on('keyup', function() {
+                table.search(this.value).draw(); // Filtra la tabella
             });
 
             $(table.row(0).node()).find("td").css({
