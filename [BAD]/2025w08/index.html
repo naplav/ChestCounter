@@ -18576,19 +18576,14 @@
     <script>
         $(document).ready(function() {
             var table = $('#dataTable').DataTable({
-                order = []
+                order = [],
                 paging: false,
                 scrollY: "70vh",
                 scrollX: true,
                 scrollCollapse: true,
                 autoWidth: false,
-                responsive: true
-                fixedColumns: {
-                    leftColumns: 1 // Mantiene la prima colonna sempre visibile
-                },
-                columnDefs: [
-                    { targets: "_all", className: "dt-head-center" } // Centra i titoli delle colonne
-                ]
+                responsive: true,
+                fixedColumns: {leftColumns: 1}
             });
 
             // Rimuove le scrollbar su mobile e rende lo scrolling più naturale
