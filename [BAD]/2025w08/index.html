@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>[BAD] Chest Counter 2025W08</title>
 
     <!-- Bootstrap CSS -->
@@ -10,43 +10,52 @@
 
     <!-- DataTables CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/4.0.1/css/fixedColumns.dataTables.min.css">
 
     <style>
+        body {
+            padding-top: 70px; /* Spazio per la navbar fissa */
+        }
         .container {
-            margin-top: 100px;
             max-width: 100%;
+            padding: 15px;
         }
         .card {
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        th {
-            vertical-align: middle !important;
-            text-align: center;
+            margin-bottom: 20px;
         }
         .table-responsive {
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch; /* Scrolling più fluido su mobile */
+            -webkit-overflow-scrolling: touch; /* Scrolling fluido su mobile */
         }
         #dataTable {
-            font-size: 14px; /* Riduce il testo */
-            word-wrap: break-word; /* Evita il testo che esce dalla cella */
+            width: 100% !important;
+            font-size: 14px;
+            word-wrap: break-word;
         }
         th, td {
-            padding: 4px; /* Riduce lo spazio tra le celle */
+            padding: 8px;
             text-align: center;
+            vertical-align: middle !important;
         }
-        @media (max-width: 768px) {
-            #dataTable {
-                font-size: 8px; /* Ancora più piccolo su schermi piccoli */
-            }
+        .dataTables_wrapper .dataTables_scroll {
+            overflow: auto;
         }
         .dataTables_scrollHeadInner, .dataTables_scrollBody table {
             min-width: 100%;
         }
         .dataTables_wrapper .dataTables_scrollBody {
-            overflow-x: auto !important;
-            -webkit-overflow-scrolling: touch; /* Permette uno scroll fluido su mobile */
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        @media (max-width: 768px) {
+            #dataTable {
+                font-size: 12px; /* Testo più piccolo su mobile */
+            }
+            th, td {
+                padding: 6px; /* Riduci il padding su mobile */
+            }
         }
     </style>
 </head>
@@ -65,7 +74,7 @@
             <h2 class="text-center">[BAD] Chest Counter 2025W08</h2>
             <p class="text-center">Last update: 2025-02-16 02:09:17 UTC+03:00</p>
             <p class="text-center">Start: 2025-02-14 00:00:00 UTC+03:00 - End: 2025-02-19 23:59:59 UTC+03:00</p>
-            <a href="../">Back to Main Page</a>
+            <a href="../" class="d-block mb-3">Back to Main Page</a>
             <div class="table-responsive">
                 <table id="dataTable" class="table table-striped table-hover">
                     <thead class="table-dark">
@@ -18572,32 +18581,30 @@
     <!-- jQuery e DataTables -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/4.0.1/js/dataTables.fixedColumns.min.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- DataTables FixedColumns -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.0.1/css/fixedColumns.dataTables.min.css">
-    <script src="https://cdn.datatables.net/fixedcolumns/4.0.1/js/dataTables.fixedColumns.min.js"></script>
-
     <script>
         $(document).ready(function() {
             var table = $('#dataTable').DataTable({
-                order : [],
+                order: [],
                 paging: false,
-                scrollY: false,
-                scrollX: false,
-                scrollCollapse: false,
+                scrollY: "70vh",
+                scrollX: true,
+                scrollCollapse: true,
                 autoWidth: true,
                 responsive: true,
-                columnDefs: [{ targets: "_all", className: "dt-head-center" }],
+                fixedColumns: {
+                    left: 1 // Fissa la prima colonna (Player)
+                },
+                columnDefs: [
+                    { targets: "_all", className: "dt-head-center" }
+                ],
             });
 
-            $(table.row(0).node()).find("td").css({
-                "background-color": "#ffc107",
-                "font-weight": "bold"
-            });
-
+            // Applica la formattazione condizionale
             table.rows().every(function(rowIdx) {
                 if (rowIdx > 0) {
                     var data = this.data();
