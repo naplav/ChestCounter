@@ -16,6 +16,11 @@
             margin-top: 100px;
             max-width: 60%;
         }
+        #dataTable {
+            width: 100% !important;
+            font-size: 12px; /* Mantiene leggibilità */
+            white-space: nowrap; /* Evita il testo a capo */
+        }
         .dataTables_wrapper .dataTables_scrollBody {
             max-height: 70vh !important;
             overflow-y: auto !important;
@@ -28,6 +33,18 @@
         }
         .week-link {
             margin: 10px 0;
+        }
+        th {
+            vertical-align: middle !important;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            #dataTable {
+                font-size: 10px; /* Riduce il testo su schermi piccoli */
+            }
+            th, td {
+                padding: 4px; /* Riduce spazio tra celle */
+            }
         }
     </style>
 </head>
