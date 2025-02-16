@@ -15,14 +15,30 @@
     <style>
         .container {
             max-width: 100%;
-            padding: 15px;
+            padding: 10px;
         }
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* Scrolling fluido su mobile */
         }
-        
+        #dataTable {
+            width: 100% !important;
+            font-size: 16px;
+            word-wrap: break-word;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle !important;
+        }
+        @media (max-width: 768px) {
+            #dataTable {
+                font-size: 12px; /* Testo più piccolo su mobile */
+            }
+            th, td {
+                padding: 6px; /* Riduci il padding su mobile */
+            }
+        }-->
     </style>
 </head>
 <body>
