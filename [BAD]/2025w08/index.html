@@ -23,13 +23,27 @@
         .table-responsive {
             overflow-x: auto;
             width: 100%;
+            -webkit-overflow-scrolling: touch; /* Scrolling più fluido su mobile */
         }
         #dataTable {
             width: 100% !important;
+            font-size: 12px; /* Mantiene leggibilità */
+            white-space: nowrap; /* Evita il testo a capo */
+        }
+        @media (max-width: 768px) {
+            #dataTable {
+                font-size: 10px; /* Riduce il testo su schermi piccoli */
+            }
+            th, td {
+                padding: 4px; /* Riduce spazio tra celle */
+            }
+        }
+        .dataTables_scrollHeadInner, .dataTables_scrollBody table {
+            min-width: 100%;
         }
         .dataTables_wrapper .dataTables_scrollBody {
-            max-height: 70vh !important;
-            overflow-y: auto !important;
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch; /* Permette uno scroll fluido su mobile */
         }
     </style>
 </head>
@@ -18566,8 +18580,18 @@
                 scrollY: "70vh",
                 scrollX: true,
                 scrollCollapse: true,
-                order: []
+                autoWidth: false,
+                responsive: true,  // Rende la tabella responsive
+                fixedColumns: {
+                    leftColumns: 1 // Mantiene la prima colonna sempre visibile
+                },
+                columnDefs: [
+                    { targets: "_all", className: "dt-head-center" } // Centra i titoli delle colonne
+                ]
             });
+
+            // Rimuove le scrollbar su mobile e rende lo scrolling più naturale
+            $('.dataTables_scrollBody').css('overflow-x', 'auto');
 
             $(table.row(0).node()).find("td").css({
                 "background-color": "#ffc107",
