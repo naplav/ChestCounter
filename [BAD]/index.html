@@ -74,7 +74,7 @@
                                 <td><a href="2025w08/index.html">2025W08</a></td>
                                 <td>2025-02-14 00:00:00 UTC+03:00</td>
                                 <td>2025-02-19 23:59:59 UTC+03:00</td>
-                                <td><a href="https://docs.google.com/spreadsheets/d/1JI5lOhVMAw_Kq5SuvwKfBbuug5h1srlxgAHgk-Z8r5U/edit#gid=106167511" target="_blank">Open Spreadsheet</a></td>
+                                <td><a href="https://docs.google.com/spreadsheets/d/1JI5lOhVMAw_Kq5SuvwKfBbuug5h1srlxgAHgk-Z8r5U/edit#gid=903536631" target="_blank">Open Spreadsheet</a></td>
                             </tr>
                         
                     </tbody>
@@ -107,17 +107,17 @@
                 let currentTime = new Date();
                 currentTime.setHours(currentTime.getHours() + 3); // Aggiungi 3 ore per UTC+3
 
-                let hours = currentTime.getHours();
-                let minutes = currentTime.getMinutes();
-                let seconds = currentTime.getSeconds();
+                let year = currentTime.getFullYear();
+                let month = (currentTime.getMonth() + 1).toString().padStart(2, '0');
+                let day = currentTime.getDate().toString().padStart(2, '0');
+                let hours = currentTime.getHours().toString().padStart(2, '0');
+                let minutes = currentTime.getMinutes().toString().padStart(2, '0');
+                let seconds = currentTime.getSeconds().toString().padStart(2, '0');
 
-                // Aggiungi zero se necessario
-                hours = hours < 10 ? "0" + hours : hours;
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                seconds = seconds < 10 ? "0" + seconds : seconds;
+                let formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds} UTC+03:00`;
 
-                // Visualizza l'ora nel formato HH:MM:SS
-                document.getElementById("current-time").textContent = `${hours}:${minutes}:${seconds}`;
+                // Visualizza "Now:" seguito dall'orario
+                document.getElementById("current-time").textContent = `Now: ${formattedDate}`;
             }
 
             // Aggiorna ogni secondo
