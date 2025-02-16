@@ -15,6 +15,8 @@
     <style>
         body {
             padding-top: 70px; /* Spazio per la navbar fissa */
+            overflow-x: auto; /* Permetti lo scroll orizzontale sull'intera pagina */
+            overflow-y: auto; /* Permetti lo scroll verticale sull'intera pagina */
         }
         .container {
             max-width: 100%;
@@ -27,6 +29,9 @@
             width: 100% !important;
             font-size: 14px;
             word-wrap: break-word;
+        }
+        th {
+            font-size: 16px;
         }
         th, td {
             padding: 8px;
@@ -50,7 +55,7 @@
             <h2 class="text-center">[BAD] Chest Counter 2025W08</h2>
             <p class="text-center">Last update: 2025-02-16 02:09:17 UTC+03:00</p>
             <p class="text-center">Start: 2025-02-14 00:00:00 UTC+03:00 - End: 2025-02-19 23:59:59 UTC+03:00</p>
-            <a href="../" class="d-block mb-3">Back to Main Page</a>
+            <a href="../index.html" class="d-block mb-3">Back to Main Page</a>
             <div class="table-responsive">
                 <table id="dataTable" class="table table-striped table-hover">
                     <thead class="table-dark">
@@ -18567,8 +18572,6 @@
             var table = $('#dataTable').DataTable({
                 order: [],
                 paging: false,
-                scrollY: "70vh",
-                scrollX: true,
                 scrollCollapse: true,
                 autoWidth: true,
                 responsive: true,
