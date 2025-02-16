@@ -53,7 +53,14 @@
     <!-- Contenitore principale -->
     <div class="container">
         <div class="card p-4">
-            <h1 class="text-center">[BAD] - Chest Counter</h1>
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="text-center">[BAD] - Chest Counter</h1>
+                </div>
+                <div class="col-md-4 text-right">
+                    <p id="current-time" class="h2"></p>
+                </div>
+            </div>
             <p class="text-center">Last update: 2025-02-16 02:09:17 UTC+03:00</p>
             <h2>Weekly Reports</h2>
             <div class="table-responsive">
@@ -72,7 +79,7 @@
                                 <td><a href="2025w08/index.html">2025W08</a></td>
                                 <td>2025-02-14 00:00:00 UTC+03:00</td>
                                 <td>2025-02-19 23:59:59 UTC+03:00</td>
-                                <td><a href="https://docs.google.com/spreadsheets/d/1JI5lOhVMAw_Kq5SuvwKfBbuug5h1srlxgAHgk-Z8r5U/edit#gid=1228530100" target="_blank">Open Spreadsheet</a></td>
+                                <td><a href="https://docs.google.com/spreadsheets/d/1JI5lOhVMAw_Kq5SuvwKfBbuug5h1srlxgAHgk-Z8r5U/edit#gid=1880744268" target="_blank">Open Spreadsheet</a></td>
                             </tr>
                         
                     </tbody>
@@ -100,6 +107,27 @@
                 "background-color": "#ffc107",
                 "font-weight": "bold"
             });
+
+            function updateTime() {
+                let currentTime = new Date();
+                currentTime.setHours(currentTime.getHours() + 3); // Aggiungi 3 ore per UTC+3
+
+                let hours = currentTime.getHours();
+                let minutes = currentTime.getMinutes();
+                let seconds = currentTime.getSeconds();
+
+                // Aggiungi zero se necessario
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                // Visualizza l'ora nel formato HH:MM:SS
+                document.getElementById("current-time").textContent = `${hours}:${minutes}:${seconds}`;
+            }
+
+            // Aggiorna ogni secondo
+            setInterval(updateTime, 1000);
+
     </script>
 </body>
 </html>
