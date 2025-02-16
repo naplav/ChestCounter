@@ -15751,7 +15751,7 @@
             });
 
             $('#tableSearch').on('keyup', function() {
-                table.search(this.value).draw(); // Filtra la tabella
+                table.column(0).search(this.value).draw();
             });
 
             $(table.row(0).node()).find("td").css({
