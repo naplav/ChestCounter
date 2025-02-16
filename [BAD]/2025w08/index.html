@@ -14,18 +14,16 @@
 
     <style>
         body {
-            padding-top: 70px; /* Spazio per la navbar fissa */
-            overflow-x: auto; /* Permetti lo scroll orizzontale sull'intera pagina */
-            overflow-y: auto; /* Permetti lo scroll verticale sull'intera pagina */
+            padding-top: 70px;
+            overflow-x: auto;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
         .container {
             max-width: 100%;
         }
-        .table-responsive {
-            -webkit-overflow-scrolling: touch; /* Scrolling fluido su mobile */
-        }
         #dataTable {
-            width: 100% !important;
+            width: 100%;
             font-size: 14px;
             word-wrap: break-word;
         }
@@ -35,7 +33,7 @@
         th, td {
             padding: 8px;
             text-align: center;
-            vertical-align: middle !important;
+            vertical-align: middle;
         }
     </style>
 </head>
