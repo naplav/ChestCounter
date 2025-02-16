@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>[BAD] - Chest Counter</title>
 
     <!-- Bootstrap CSS -->
@@ -13,41 +13,32 @@
 
     <style>
         body {
-            padding-top: 70px; /* Spazio per la navbar fissa */
-            overflow-x: auto; /* Permetti lo scroll orizzontale sull'intera pagina */
-            overflow-y: auto; /* Permetti lo scroll verticale sull'intera pagina */
+            padding-top: 70px;
+            overflow-x: auto;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
         .container {
             max-width: 100%;
         }
         #dataTable {
-            font-size: 12px; /* Mantiene leggibilità */
-            white-space: nowrap; /* Evita il testo a capo */
+            width: 100%;
+            font-size: 14px;
+            word-wrap: break-word;
         }
-        .dataTables_wrapper .dataTables_scrollBody {
-            max-height: 70vh !important;
-            overflow-y: auto !important;
+        th {
+            font-size: 16px;
         }
-        h1 {
-            color: #333;
+        th, td {
+            padding: 8px;
+            text-align: center;
+            vertical-align: middle;
         }
         a:hover {
             text-decoration: underline;
         }
         .week-link {
             margin: 10px 0;
-        }
-        th {
-            vertical-align: middle !important;
-            text-align: center;
-        }
-        @media (max-width: 768px) {
-            #dataTable {
-                font-size: 10px; /* Riduce il testo su schermi piccoli */
-            }
-            th, td {
-                padding: 4px; /* Riduce spazio tra celle */
-            }
         }
     </style>
 </head>
@@ -65,24 +56,26 @@
             <h1 class="text-center">[BAD] - Chest Counter</h1>
             <p class="text-center">Last update: 2025-02-16 02:09:17 UTC+03:00</p>
             <h2>Weekly Reports</h2>
-            <table id="weekly-reports" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Week</th>
-                        <th scope="col">Start Date</th>
-                        <th scope="col">End Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
+            <div class="table-responsive">
+                <table id="weekly-reports" class="table table-striped">
+                    <thead class="table-dark">
                         <tr>
-                            <td><a href="2025w08/index.html">2025W08</a></td>
-                            <td>2025-02-14 00:00:00 UTC+03:00</td>
-                            <td>2025-02-19 23:59:59 UTC+03:00</td>
+                            <th scope="col">Week</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
                         </tr>
-                    
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        
+                            <tr>
+                                <td><a href="2025w08/index.html">2025W08</a></td>
+                                <td>2025-02-14 00:00:00 UTC+03:00</td>
+                                <td>2025-02-19 23:59:59 UTC+03:00</td>
+                            </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
