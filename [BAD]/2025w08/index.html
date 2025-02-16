@@ -15737,7 +15737,6 @@
             var table = $('#dataTable').DataTable({
                 order: [],
                 paging: false,
-                searching: false,
                 ordering: false,
                 scrollCollapse: true,
                 autoWidth: true,
@@ -15753,6 +15752,9 @@
             $('#tableSearch').on('keyup', function() {
                 table.column(0).search(this.value).draw();
             });
+
+            // Nascondi la barra di ricerca predefinita di DataTables tramite CSS
+            $('#dataTable_filter').hide();
 
             $(table.row(0).node()).find("td").css({
                 "background-color": "#ffc107",
