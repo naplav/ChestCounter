@@ -25,14 +25,15 @@
             text-align: center;
         }
         .table-responsive {
+            overflow-x: auto;
             width: 100%;
-            -webkit-overflow-scrolling: touch; /* Scrolling fluido su mobile */
+            -webkit-overflow-scrolling: touch; /* Scrolling più fluido su mobile */
         }
         #dataTable {
             width: 100% !important;
-            font-size: 10px; /* Testo ridotto */
+            font-size: 12px; /* Riduce il testo */
             table-layout: fixed; /* Mantiene larghezza fissa */
-            word-wrap: break-word; /* Evita testo fuoriuscito */
+            word-wrap: break-word; /* Evita il testo che esce dalla cella */
         }
         th, td {
             padding: 4px; /* Riduce lo spazio tra le celle */
@@ -40,8 +41,15 @@
         }
         @media (max-width: 768px) {
             #dataTable {
-                font-size: 8px; /* Riduce ancora su mobile */
+                font-size: 8px; /* Ancora più piccolo su schermi piccoli */
             }
+        }
+        .dataTables_scrollHeadInner, .dataTables_scrollBody table {
+            min-width: 100%;
+        }
+        .dataTables_wrapper .dataTables_scrollBody {
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch; /* Permette uno scroll fluido su mobile */
         }
     </style>
 </head>
@@ -18571,18 +18579,58 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- DataTables FixedColumns -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.0.1/css/fixedColumns.dataTables.min.css">
+    <script src="https://cdn.datatables.net/fixedcolumns/4.0.1/js/dataTables.fixedColumns.min.js"></script>
+
     <script>
         $(document).ready(function() {
             var table = $('#dataTable').DataTable({
+                order : [],
                 paging: false,
                 scrollY: "70vh",
-                scrollX: false,  // Disabilita lo scroll orizzontale
+                scrollX: false,
                 scrollCollapse: true,
-                autoWidth: true,
-                responsive: true
+                autoWidth: false,
+                responsive: true,
+                columnDefs: [{ targets: "_all", className: "dt-head-center" }],
+                fixedColumns: {leftColumns: 1}
             });
 
-            $('.dataTables_scrollBody').css('overflow-x', 'hidden'); // Blocca lo scroll orizzontale
+            // Rimuove le scrollbar su mobile e rende lo scrolling più naturale
+            $('.dataTables_scrollBody').css('overflow-x', 'auto');
+
+            $(table.row(0).node()).find("td").css({
+                "background-color": "#ffc107",
+                "font-weight": "bold"
+            });
+
+            table.rows().every(function(rowIdx) {
+                if (rowIdx > 0) {
+                    var data = this.data();
+                    var cIndexCol = $("th").filter(function() { return $(this).text() === "C-INDEX"; }).index();
+                    var totalPointsCol = $("th").filter(function() { return $(this).text() === "Total Points"; }).index();
+                    var cIndex = parseFloat(data[cIndexCol]);
+
+                    if (!isNaN(cIndex)) {
+                        var lowerBound = 0.9;
+                        var upperBound = 1.0;
+                        var color = cIndex > upperBound ? "#d4edda" : cIndex < lowerBound ? "#f8d7da" : "#fff3cd";
+                        $(this.node()).find("td").eq(cIndexCol).css("background-color", color);
+                        $(this.node()).find("td").eq(totalPointsCol).css("background-color", color);
+                    }
+
+                    var ec20Col = $("th").filter(function() { return $(this).text() === "EC 20+"; }).index();
+                    var ec20Plus = parseFloat(data[ec20Col]);
+
+                    if (!isNaN(ec20Plus)) {
+                        var lowerBound = 0.75 * 66.34408602150538;
+                        var upperBound = 1.0 * 66.34408602150538;
+                        var ecColor = ec20Plus > upperBound ? "#d4edda" : ec20Plus < lowerBound ? "#f8d7da" : "#fff3cd";
+                        $(this.node()).find("td").eq(ec20Col).css("background-color", ecColor);
+                    }
+                }
+            });
         });
     </script>
 </body>
